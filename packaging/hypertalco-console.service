@@ -1,0 +1,19 @@
+[Unit]
+Description=Hypertalco loopback VNC websocket proxy
+After=hypertalco-agent.service
+Requires=hypertalco-agent.service
+
+[Service]
+User=hypertalco
+Group=hypertalco
+ExecStart=/usr/bin/websockify --token-plugin TokenFile --token-source /run/hypertalco-agent/vnc-tokens 127.0.0.1:6080
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

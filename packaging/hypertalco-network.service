@@ -1,0 +1,13 @@
+[Unit]
+Description=Hypertalco guest forwarding compatibility
+After=docker.service libvirtd.service network-online.target
+Wants=docker.service libvirtd.service network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/hypertalco/current
+ExecStart=/usr/bin/python3 scripts/network_compat.py
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

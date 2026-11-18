@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><title>Hypertalco · Host control plane</title>
+  <link rel="icon" href="/static/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css"><script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main id="login" class="login-shell">
+    <div class="login-window">
+      <section class="login-story"><div class="brand"><img src="/static/mark.svg" alt=""><span>Hypertalco</span></div><small>System Manager</small></section>
+      <section class="login-panel"><form id="login-form" class="login-form"><span class="eyebrow muted">DEBIAN / UBUNTU HOST</span><h2>System login</h2><p class="muted">Enter your administrator credentials.</p><label>Username<input name="username" autocomplete="username" required maxlength="64" value="talcoadmin"></label><label>Password<input name="password" type="password" autocomplete="current-password" required maxlength="128"></label><p id="login-error" class="form-error" role="alert"></p><button class="button primary" type="submit">Log in</button><small class="muted">Docker · LXC · QEMU / KVM</small></form></section>
+    </div>
+  </main>
+  <div id="shell" class="shell" hidden>
+      <header class="topbar"><div class="crumb"><button id="menu-button" class="icon-button mobile-only" aria-label="Toggle navigation">☰</button><span class="title-program">Hypertalco — System Manager</span><span class="slash">/</span><strong id="breadcrumb">Overview</strong></div><div class="topbar-actions"><span id="refresh-state" class="live-label"><span class="online-dot"></span>Live</span><button id="refresh-button" class="icon-button" aria-label="Refresh current view">↻</button><button id="user-button" class="avatar" title="Account settings">A</button></div></header>
+    <aside class="sidebar" id="sidebar">
+      <a href="#overview" class="brand"><img src="/static/mark.svg" alt=""><span>Hypertalco</span></a>
+      <div class="sidebar-caption">SYSTEM MANAGER</div>
+      <nav aria-label="Main navigation">
+        <a href="#overview" data-nav="overview"><span class="nav-symbol">◫</span>Overview</a>
+        <span class="nav-caption">COMPUTE</span>
+        <a href="#docker" data-nav="docker"><span class="nav-symbol">▦</span>Docker<span class="nav-count" id="count-docker">0</span></a>
+        <a href="#lxc" data-nav="lxc"><span class="nav-symbol">▤</span>LXC containers<span class="nav-count" id="count-lxc">0</span></a>
+        <a href="#qemu" data-nav="qemu"><span class="nav-symbol">▣</span>Virtual machines<span class="nav-count" id="count-qemu">0</span></a>
+        <span class="nav-caption">HOST</span>
+        <a href="#networks" data-nav="networks"><span class="nav-symbol">⌘</span>Networking</a>
+        <a href="#storage" data-nav="storage"><span class="nav-symbol">▱</span>Storage</a>
+        <span class="nav-caption">LIBRARY</span>
+        <a href="#media" data-nav="media"><span class="nav-symbol">◉</span>ISO media</a>
+        <a href="#templates" data-nav="templates"><span class="nav-symbol">▧</span>CT templates</a>
+        <a href="#images" data-nav="images"><span class="nav-symbol">⬡</span>Docker images</a>
+        <span class="nav-caption">MANAGEMENT</span>
+        <a href="#activity" data-nav="activity"><span class="nav-symbol">≋</span>Activity<span id="pending-count" class="nav-count" hidden>0</span></a>
+        <a href="#settings" data-nav="settings"><span class="nav-symbol">⚙</span>Settings</a>
+      </nav>
+      <div class="node-badge"><span class="online-dot"></span><div><strong id="node-name">Local node</strong><small>Local host</small></div><span class="node-symbol">↗</span></div>
+    </aside>
+    <div class="workspace">
+
+      <div id="demo-banner" class="demo-banner" hidden>LOCAL PREVIEW <span>Guests, networks and catalogs are simulated. No host engines are connected.</span></div>
+      <main id="content" tabindex="-1"></main>
+      <footer><span>Hypertalco <span id="version"></span></span><span id="last-updated">Waiting for host data</span></footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="modal"><div id="modal-content"></div></dialog>
+  <dialog id="details-modal" class="details-dialog"><div id="details-content"></div></dialog>
+</body>
+</html>

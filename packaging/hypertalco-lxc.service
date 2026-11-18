@@ -1,0 +1,17 @@
+[Unit]
+Description=Hypertalco LXC guest autostart
+After=hypertalco-network.service network-online.target
+Wants=hypertalco-network.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+Delegate=yes
+WorkingDirectory=/opt/hypertalco/current
+ExecStart=/usr/bin/python3 scripts/lxc_autostart.py start @@LXC_DIR@@
+ExecStop=/usr/bin/python3 scripts/lxc_autostart.py stop @@LXC_DIR@@
+TimeoutStopSec=120
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

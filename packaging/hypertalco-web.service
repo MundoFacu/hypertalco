@@ -1,0 +1,27 @@
+[Unit]
+Description=Hypertalco web application
+After=hypertalco-agent.service
+Requires=hypertalco-agent.service
+
+[Service]
+User=hypertalco
+Group=hypertalco
+WorkingDirectory=/opt/hypertalco/current
+ExecStart=/usr/bin/gunicorn --bind 127.0.0.1:8765 --workers 2 --threads 4 --timeout 90 --forwarded-allow-ips 127.0.0.1 hypertalco.web:application
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+CapabilityBoundingSet=
+ReadWritePaths=/var/lib/hypertalco
+
+[Install]
+WantedBy=multi-user.target

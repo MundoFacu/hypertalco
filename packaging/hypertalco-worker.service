@@ -1,0 +1,22 @@
+[Unit]
+Description=Hypertalco job worker
+After=hypertalco-agent.service
+Requires=hypertalco-agent.service
+
+[Service]
+User=hypertalco
+Group=hypertalco
+WorkingDirectory=/opt/hypertalco/current
+ExecStart=/usr/bin/python3 -m hypertalco worker
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+CapabilityBoundingSet=
+ReadWritePaths=/var/lib/hypertalco
+
+[Install]
+WantedBy=multi-user.target

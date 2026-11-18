@@ -1,0 +1,25 @@
+[Unit]
+Description=Hypertalco privileged local host agent
+After=network-online.target docker.service libvirtd.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/hypertalco/current
+ExecStart=/usr/bin/python3 -m hypertalco agent
+Restart=on-failure
+RestartSec=3
+RuntimeDirectory=hypertalco-agent
+RuntimeDirectoryMode=0750
+UMask=0077
+Delegate=yes
+KillMode=process
+ProtectSystem=full
+ProtectHome=yes
+# LXC must transition into its generated AppArmor profile. Linux rejects that
+# transition under no_new_privs in this service's unconfined host context.
+
+[Install]
+WantedBy=multi-user.target
