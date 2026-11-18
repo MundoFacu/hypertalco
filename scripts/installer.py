@@ -156,7 +156,7 @@ def execute(args, encoded):
     print(style('  Web interface: ', '1') + f'https://HOST:{args.port}/')
     print(style('  Administrator: ', '1') + 'talcoadmin')
     print('HTTPS uses a self-signed certificate. No host sudo password is stored.')
-    print(style('  cooked in vibetool.cloud sauce', '36'))
+    print(style('  cooked in https://vibetool.cloud sauce', '36'))
 
 
 def main():

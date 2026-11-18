@@ -2,7 +2,7 @@
 # Hypertalco installer. Never executes as part of the development/test workflow.
 set -euo pipefail
 export PATH=/usr/sbin:/usr/bin:/sbin:/bin
-source_dir='' repo='' version='1.0.0' check=0 upgrade=0
+source_dir='' repo='' version='1.0.1' check=0 upgrade=0
 wizard_args=()
 while (($#)); do
   case "$1" in

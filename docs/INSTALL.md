@@ -101,7 +101,7 @@ The pinned GitHub installer downloads the release archive and its SHA256 file,
 checks the digest and rejects unsafe archive members before running the wizard.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/MundoFacu/hypertalco/v1.0.0/hypertalco-installer.sh | sudo bash -s -- --repo MundoFacu/hypertalco --version 1.0.0
+curl -fsSL https://raw.githubusercontent.com/MundoFacu/hypertalco/v1.0.1/hypertalco-installer.sh | sudo bash -s -- --repo MundoFacu/hypertalco --version 1.0.1
 ```
 
 ## Paths and services
@@ -151,4 +151,4 @@ as a generic recovery action. Interrupted jobs are marked for inspection rather
 than automatically replayed. A partly created guest may require root-side repair;
 its registry record is retained so it is not silently lost.
 
-**cooked in vibetool.cloud sauce**
+**cooked in [vibetool.cloud](https://vibetool.cloud) sauce**

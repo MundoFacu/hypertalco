@@ -1,14 +1,15 @@
 # HyperTalco 1.0.0
 
-Primera versión del panel de administración para Docker, LXC sin privilegios y QEMU/KVM en un servidor Debian o Ubuntu.
+The first release brings Docker applications, unprivileged LXC containers, and QEMU/KVM virtual machines together on an existing Debian or Ubuntu host.
 
-- Instalador interactivo con revisión de requisitos, plan de red, almacenamiento y HTTPS.
-- Biblioteca de ISO y templates de CT con carga desde el navegador. Catálogo Docker con acceso a Docker Hub.
-- Consola noVNC para instalar sistemas en las VM, métricas del host e inventario unificado.
-- Instalación verificada en Ubuntu Server 24.04.5 x86_64 físico, con pruebas de los tres motores y arranque de Alpine UEFI desde disco.
+- Configure guest networks, storage, and HTTPS through the interactive installer.
+- Upload ISOs and container templates from a browser, or pull application images from Docker Hub.
+- Install guest operating systems through noVNC and monitor all three engines on one dashboard.
 
-El archivo `hypertalco-1.0.0.tar.gz` contiene el código y la documentación. Para verificar una descarga, guardá también el archivo `.sha256` en el mismo directorio y corré `sha256sum -c hypertalco-1.0.0.tar.gz.sha256`.
+Clean installs were tested on physical Ubuntu Server 24.04.5 x86_64, including an Alpine UEFI guest that booted from its virtual disk after the ISO was removed.
 
-[Captura y primeros pasos](https://github.com/MundoFacu/hypertalco/blob/v1.0.0/README.md) · [Guía de instalación](https://github.com/MundoFacu/hypertalco/blob/v1.0.0/docs/INSTALL.md)
+To verify the release archive, download the tarball and its checksum to the same directory and run `sha256sum -c hypertalco-1.0.0.tar.gz.sha256`.
 
-**cooked in vibetool.cloud sauce**
+[Dashboard and getting started](https://github.com/MundoFacu/hypertalco#readme) · [Installation guide](https://github.com/MundoFacu/hypertalco/blob/main/docs/INSTALL.md)
+
+🍳 **cooked in [vibetool.cloud](https://vibetool.cloud) sauce**
